@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ArchimedesPermissionsTest;
+﻿namespace ArchimedesPermissionsTest;
 public class Secrets
 {
-	public string ServerAddress { get; set; } = "https://grpc.authzed.com";
-	public string Token { get; set; } = "token_abcdefghijklmnop";
+    public string ServerAddress { get; set; } = "https://grpc.authzed.com";
+    public string Token { get; set; } = "token_abcdefghijklmnop";
 }
