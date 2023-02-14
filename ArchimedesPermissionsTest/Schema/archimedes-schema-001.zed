@@ -63,10 +63,8 @@ definition group {
     // Dynamically determine who is allowed to post in the group
     relation prevent_post: user:* | anonymous_user:*
     relation posters: group#manager | group#member | organization#member | user:* | anonymous_user:*
-    relation as_group_posters: group#manager | group#member | custom_role#member
     permission post = owner->admin + owner + ((posters & post_without_moderation) - prevent_post - banned)
     permission post_for_moderation = organization->admin + owner + (posters - prevent_post - banned)
-    permission post_as_group = organization->admin + owner + (as_group_posters - prevent_post - banned)
 
     // Dynamically determine who is allowed to edit pages for the group
     relation page_editors: group#manager | group#member | organization#member | custom_role#member
@@ -77,13 +75,16 @@ definition group {
     permission view_members = organization->admin + owner + (members_viewers - banned)
 
     // Manage group membership and ownership
-    relation member_manager: group#manager | group#member | custom_role#member
-    permission add_member = organization->admin + owner + (member_manager - banned)
+    permission add_member = organization->admin + owner + (manager - banned)
     permission remove_member = add_member
 
     // Manage announcements
-    permission add_announcement = organization->admin + owner + (member_manager - banned)
+    permission add_announcement = organization->admin + owner + (manager - banned)
     permission remove_announcement = add_announcement
+
+    relation commenters: group#manager | group#member | organization#member | custom_role#member | user:* | anonymous_user:*
+    permission add_comments = organization->admin + owner + (commenters - banned)
+    permission remove_comments = moderate_content
 
     // Manage group management
     permission add_manager = organization->admin + owner

@@ -22,5 +22,9 @@ client.ImportSchemaFromStringAsync(schema, "archtest").GetAwaiter().GetResult();
 
 var schema_read = client.ExportSchema();
 
+if (client.CheckPermission(ZedUser.WithId("abcd").GroupCanJoin(ZedGroup.WithId("abcd"))).HasPermission)
+{
+
+}
 
 Console.WriteLine("Done");
