@@ -1,3 +1,6 @@
 [submodule "SpiceDb"]
 	path = SpiceDb
 	url = https://github.com/JalexSocial/SpiceDb
+[submodule "Archimedes"]
+	path = Archimedes
+	url = https://github.com/RoverLink/Archimedes
