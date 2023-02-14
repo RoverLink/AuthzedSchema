@@ -1,0 +1,3 @@
+[submodule "SpiceDb"]
+	path = SpiceDb
+	url = https://github.com/JalexSocial/SpiceDb

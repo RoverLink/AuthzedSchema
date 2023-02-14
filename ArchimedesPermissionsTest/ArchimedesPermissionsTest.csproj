@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>03f47cf0-fab2-479e-8c14-0354b1c71c13</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Schema\archimedes-schema-001.zed" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Schema\archimedes-schema-001.zed" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Documents\Github\SpiceDb\SpiceDb\SpiceDb.csproj" />
+    <ProjectReference Include="..\SpiceDb\SpiceDb\SpiceDb.csproj" />
+  </ItemGroup>
+
+</Project>
