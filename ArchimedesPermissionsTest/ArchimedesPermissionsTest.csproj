@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Documents\Github\SpiceDb\SpiceDb\SpiceDb.csproj" />
     <ProjectReference Include="..\SpiceDb\SpiceDb\SpiceDb.csproj" />
   </ItemGroup>
 
