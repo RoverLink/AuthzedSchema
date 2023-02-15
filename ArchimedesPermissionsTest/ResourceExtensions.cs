@@ -13,7 +13,7 @@ internal static class ResourceExtensions
         var resources = assembly.GetManifestResourceNames();
         resourcePath = resources.Single(str => str.EndsWith(name));
 
-        await using Stream stream = assembly.GetManifestResourceStream(resourcePath)!;
+        await using System.IO.Stream stream = assembly.GetManifestResourceStream(resourcePath)!;
         using StreamReader reader = new(stream);
         return await reader.ReadToEndAsync();
     }

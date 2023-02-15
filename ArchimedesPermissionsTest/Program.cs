@@ -13,7 +13,7 @@ var secrets = configurationRoot.GetSection("AuthZed").Get<Secrets>();
 if (secrets is null)
     throw new ArgumentException("Invalid secrets configuration");
 
-var client = new SpiceDb.Client(secrets.ServerAddress, secrets.Token);
+var client = new SpiceDb.SpiceDbClient(secrets.ServerAddress, secrets.Token);
 var schema = Assembly.GetExecutingAssembly().ReadResourceAsync("archimedes-schema-001.zed").Result;
 
 client.ImportSchemaFromStringAsync(schema, "archtest").GetAwaiter().GetResult();

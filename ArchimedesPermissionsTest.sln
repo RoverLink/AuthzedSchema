@@ -7,6 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchimedesPermissionsTest",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpiceDb", "SpiceDb\SpiceDb\SpiceDb.csproj", "{7FD2A65D-03DF-4FF3-9322-03D5E0402832}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Archimedes.Domain", "Archimedes\Archimedes.Domain\Archimedes.Domain.csproj", "{69B89131-258C-4281-A40C-5D4F3D59D608}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Archimedes.Infrastructure", "Archimedes\Archimedes.Infrastructure\Archimedes.Infrastructure.csproj", "{7145C1FA-F8A7-4FF8-ABF6-7B41123E51B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Archimedes.Util", "Archimedes\Archimedes.Util\Archimedes.Util.csproj", "{B4FF1DA7-F540-4325-95A9-68BFE4720DF8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceStack.Quartz", "Archimedes\ServiceStack.Quartz\ServiceStack.Quartz.csproj", "{7EC908CB-17A8-4891-9073-D60F7B9404A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchimedesPermissionServiceTest", "ArchimedesPermissionServiceTest\ArchimedesPermissionServiceTest.csproj", "{C4D90AED-9A72-4240-B25D-3B91A37B55E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +31,26 @@ Global
 		{7FD2A65D-03DF-4FF3-9322-03D5E0402832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD2A65D-03DF-4FF3-9322-03D5E0402832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FD2A65D-03DF-4FF3-9322-03D5E0402832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B89131-258C-4281-A40C-5D4F3D59D608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B89131-258C-4281-A40C-5D4F3D59D608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B89131-258C-4281-A40C-5D4F3D59D608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B89131-258C-4281-A40C-5D4F3D59D608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7145C1FA-F8A7-4FF8-ABF6-7B41123E51B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7145C1FA-F8A7-4FF8-ABF6-7B41123E51B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7145C1FA-F8A7-4FF8-ABF6-7B41123E51B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7145C1FA-F8A7-4FF8-ABF6-7B41123E51B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4FF1DA7-F540-4325-95A9-68BFE4720DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4FF1DA7-F540-4325-95A9-68BFE4720DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4FF1DA7-F540-4325-95A9-68BFE4720DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4FF1DA7-F540-4325-95A9-68BFE4720DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC908CB-17A8-4891-9073-D60F7B9404A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC908CB-17A8-4891-9073-D60F7B9404A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC908CB-17A8-4891-9073-D60F7B9404A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC908CB-17A8-4891-9073-D60F7B9404A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4D90AED-9A72-4240-B25D-3B91A37B55E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4D90AED-9A72-4240-B25D-3B91A37B55E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4D90AED-9A72-4240-B25D-3B91A37B55E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4D90AED-9A72-4240-B25D-3B91A37B55E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

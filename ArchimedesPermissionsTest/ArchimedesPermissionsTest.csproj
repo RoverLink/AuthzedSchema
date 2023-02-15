@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Archimedes\Archimedes.Domain\Archimedes.Domain.csproj" />
     <ProjectReference Include="..\SpiceDb\SpiceDb\SpiceDb.csproj" />
   </ItemGroup>
 
