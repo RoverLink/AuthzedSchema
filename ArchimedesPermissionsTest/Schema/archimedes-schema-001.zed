@@ -9,6 +9,7 @@ definition user {}
 definition anonymous_user {}
 
 definition platform {
+    relation member: user
 	relation administrator: user
 	permission super_admin = administrator
 }
@@ -23,6 +24,7 @@ definition organization {
 }
 
 definition group {
+    relation platform: platform
     relation organization: organization
 
     // Direct roles on the group
@@ -32,37 +34,41 @@ definition group {
 
     // Users can be banned from the group    
     relation banned: user
-    permission can_be_banned = organization->member - owner
+    permission can_be_banned = (organization->member + platform->member) - owner
 
     // Synthetic relationship because we can't use the + operator in relations
     permission member = owner + (manager + direct_member - banned)
 
     // Dynamically determine who is allowed to search for the group
-    relation searchers: organization#member
+    relation searchers: organization#member | user:* | anonymous_user:*
     permission view_in_search = organization->admin + owner + (member + searchers - banned)
 
     // Dynamically determine who is allowed to join or ask to join the group
-    relation joiners: organization#member
-    relation askers: organization#member
+    relation joiners: organization#member | platform#member
+    relation askers: organization#member | platform#member
     relation invited: user
     relation pending: user
     permission ask_to_join = askers - join - member - pending - banned
     permission join = (invited + joiners) - member - banned
 
+    relation followers: organization#member | platform#member | group#member | user:*
+    relation follower: user
+    permission follow = organization->admin + owner + (followers - follower - banned)
+    
     // Dynamically determine who is allowed to view posts
-    relation viewers: group#manager | group#member | organization#member
+    relation viewers: group#manager | group#member | organization#member | user:* | anonymous_user:*
     permission view_posts = organization->admin + owner + (viewers - banned)
 
     // Dynamically determine the group's moderation policy
-    relation post_without_moderation: user:* | anonymous_user:* | group#member
+    relation post_without_moderation: user:* | group#member
     relation content_moderators: group#manager | group#member | custom_role#member
     relation metadata_moderators: group#manager | group#member | custom_role#member
     permission moderate_content = organization->admin + owner + (content_moderators - banned)
     permission moderate_metadata = organization->admin + owner + (metadata_moderators - banned)
 
     // Dynamically determine who is allowed to post in the group
-    relation prevent_post: user:* | anonymous_user:*
-    relation posters: group#manager | group#member | organization#member | user:* | anonymous_user:*
+    relation prevent_post: user:*
+    relation posters: group#manager | group#member | organization#member | user:*
     permission post = owner->admin + owner + ((posters & post_without_moderation) - prevent_post - banned)
     permission post_for_moderation = organization->admin + owner + (posters - prevent_post - banned)
 
@@ -82,7 +88,7 @@ definition group {
     permission add_announcement = organization->admin + owner + (manager - banned)
     permission remove_announcement = add_announcement
 
-    relation commenters: group#manager | group#member | organization#member | custom_role#member | user:* | anonymous_user:*
+    relation commenters: group#manager | group#member | organization#member | custom_role#member | user:*
     permission add_comments = organization->admin + owner + (commenters - banned)
     permission remove_comments = moderate_content
 
